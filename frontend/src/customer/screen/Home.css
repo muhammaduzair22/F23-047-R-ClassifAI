@@ -1,0 +1,91 @@
+.landing-page {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .header {
+    padding: 200px 0;
+    text-align: center;
+    /* height:auto; */
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('../images/landing2.jpg') no-repeat;
+    background-size: cover; 
+    background-position: center; /* Center the background image */
+  }
+  
+  .header h1 {
+    font-size: 3rem;
+  }
+  
+  .lead {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+  }
+  
+  .btn-primary:hover {
+    background-color: #117a8b;
+    border-color: #117a8b;
+  }
+  
+  .section {
+    padding: 80px 0;
+  }
+  
+  .section-heading {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .section-text {
+    font-size: 1.2rem;
+  }
+  
+  .bg-light {
+    background-color: #f8f9fa;
+  }
+  
+  .feature-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .feature-list li {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  
+  .footer {
+    padding: 30px 0;
+    background-color: #343a40;
+    color: #fff;
+  }
+  .feature-boxes {
+    margin-top: 30px;
+  }
+  
+  .feature-box {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .feature-box i {
+    color: #17a2b8;
+    margin-bottom: 10px;
+  }
+  
+  .feature-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .feature-box p {
+    font-size: 1rem;
+  }  

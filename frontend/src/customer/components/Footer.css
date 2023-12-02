@@ -1,0 +1,38 @@
+/* Footer.css */
+
+.footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 40px 0;
+  }
+  
+  .footer h4 {
+    color: #17a2b8;
+  }
+  
+  .footer p {
+    margin-bottom: 15px;
+  }
+  
+  .social-icons {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .social-icons i {
+    font-size: 24px;
+    color: #fff;
+  }
+  
+  .bottom-bar {
+    background-color: #212529;
+    padding: 10px 0;
+    color: #fff;
+  }
+  

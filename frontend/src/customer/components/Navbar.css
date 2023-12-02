@@ -1,0 +1,162 @@
+/* Navbar.css */
+
+/* Custom styles for the Navbar */
+.navbar {
+  padding: 0px 0;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-color: #fff;
+}
+
+.navbar-nav {
+  text-align: center;
+}
+
+.nav-item {
+  margin-bottom: 0px;
+}
+
+.nav-link {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #17a2b8;
+}
+
+/* Profile image styles */
+.profile-image {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+/* Dropdown styles */
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  color: #343a40;
+  font-weight: bold;
+}
+
+.dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.dropdown-item:hover {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+/* Custom styles for the responsive navigation menu */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  .nav-item {
+    margin-bottom: 8px;
+  }
+}
+
+.profile{
+  margin-left: 830px;
+  margin-right: 0px;
+}
+
+.items{
+  margin-top: 10px;
+}
+
+rotate-on-hover {
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.rotate-on-hover:hover {
+  /* transform: rotateX(360deg); */
+  transform: translateY(-30px) translateZ(0px);
+
+  transition: transform 0.8s ease-in-out; 
+  cursor: pointer; /* Add this to show the cursor changes on hover */
+  /* transition: all 0.3s ease-in-out 0s; */
+	background-color  : #ffd700;
+	color             : #696969;
+}
+
+/* @keyframes slideUpAndDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-up-and-down-on-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-up-and-down-on-hover:hover span {
+  animation: slideUpAndDown 1s;
+  animation-fill-mode: forwards;
+}
+
+.slide-up-and-down-on-hover span {
+  display: block;
+} */
+
+
+@keyframes slideUpAndDown {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.slide-up-and-down-on-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-up-and-down-on-hover:hover span {
+  animation: slideUpAndDown 1s;
+  animation-fill-mode: forwards;
+}
+
+.slide-up-and-down-on-hover span {
+  display: block;
+}
+
