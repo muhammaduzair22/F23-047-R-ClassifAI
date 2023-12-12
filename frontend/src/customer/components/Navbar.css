@@ -1,12 +1,20 @@
 /* Navbar.css */
 
 /* Custom styles for the Navbar */
+
+.logo{
+  width: 300px;
+  height: 60px;
+  border-radius: 10px;
+  margin-left: -90px;
+}
 .navbar {
   padding: 0px 0;
+  background-color:#71154e;
 }
 
 .navbar-brand {
-  font-size: 1.8rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
@@ -23,7 +31,7 @@
 }
 
 .nav-item {
-  margin-bottom: 0px;
+  margin-bottom: -40px !important;
 }
 
 .nav-link {
@@ -34,7 +42,7 @@
 }
 
 .nav-link:hover {
-  color: #17a2b8;
+  color: #F4C142;
 }
 
 /* Profile image styles */
@@ -62,7 +70,7 @@
 }
 
 .dropdown-item:hover {
-  background-color: #17a2b8;
+  background-color: #17a2b8 !important;
   color: #fff;
 }
 
@@ -82,7 +90,25 @@
   margin-left: 830px;
   margin-right: 0px;
 }
-
+.login{
+  margin-left: 380px;
+  margin-right: 0px;
+  transition: transform 0.3s;
+}
+.signup{
+  margin-left: 20px;
+  margin-right: 0px;
+  background-color: transparent !important;
+  border: transparent !important;
+  transition: transform 0.3s;
+}
+.signup:hover{
+  background-color:  #17a2b8 !important;
+  transform: scale(1.1);
+}
+.login:hover{
+  transform: scale(1.1);
+}
 .items{
   margin-top: 10px;
 }
@@ -102,47 +128,36 @@ rotate-on-hover {
 	color             : #696969;
 }
 
-/* @keyframes slideUpAndDown {
+
+
+@keyframes slideDownfromUp {
   0% {
-    transform: translateY(0);
-  }
-  50% {
     transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.slide-up-and-down-on-hover {
-  position: relative;
-  overflow: hidden;
-}
-
-.slide-up-and-down-on-hover:hover span {
-  animation: slideUpAndDown 1s;
-  animation-fill-mode: forwards;
-}
-
-.slide-up-and-down-on-hover span {
-  display: block;
-} */
-
-
-@keyframes slideUpAndDown {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
+    /* opacity: 1; */
   }
   50% {
     transform: translateY(0);
-    opacity: 1;
   }
   100% {
+    transform: translateY(0);
+    /* opacity: 1; */
+
+  }
+}
+
+@keyframes slideDown {
+  0% {
     transform: translateY(100%);
-    opacity: 0;
+    /* opacity: 1; */
+  }
+  50% {
+    transform: translateY(0);
+    /* opacity: 0; */
+  }
+  100% {
+    transform: translateY(0);
+    /* opacity: 1; */
+
   }
 }
 
@@ -152,7 +167,8 @@ rotate-on-hover {
 }
 
 .slide-up-and-down-on-hover:hover span {
-  animation: slideUpAndDown 1s;
+  animation: slideDown 0.4s;
+
   animation-fill-mode: forwards;
 }
 
@@ -160,3 +176,18 @@ rotate-on-hover {
   display: block;
 }
 
+.slide-up-and-down-on-hover:not(:hover) span {
+  animation: slideDownfromUp 0.4s;
+  animation-fill-mode: forwards;
+}
+.home{
+margin-left: 20px;
+margin-bottom: 5px !important;
+}
+.about{
+  margin-left: 20px;
+
+}
+.contact{
+  margin-left: 20px;
+}

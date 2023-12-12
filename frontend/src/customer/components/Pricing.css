@@ -1,0 +1,105 @@
+.price1 {
+    display: grid;
+    width: 300px;
+    height: 500px;
+    place-content: center;
+    /* background: linear-gradient(to bottom right, #4f46e5, #a94fff); */
+    padding: 4px 16px 48px 16px;
+    color: #1f2937;
+    /* margin-top: 100px; */
+  }
+  .price2 {
+    display: grid;
+    width: 300px;
+    height: 500px;
+    place-content: center;
+    /* background: linear-gradient(to bottom right, #4f46e5, #a94fff); */
+    padding: 4px 16px 48px 16px;
+    color: #1f2937;
+  }
+  .price3 {
+    display: grid;
+    width: 300px;
+    height: 500px;
+    place-content: center;
+    /* background: linear-gradient(to bottom right, #4f46e5, #a94fff); */
+    padding: 4px 16px 48px 16px;
+    color: #1f2937;
+  }
+  .cont{
+    margin-left: 200px;
+  }
+  
+  /* You can adjust the padding values based on your design */
+  .element {
+    position: relative;
+    height: 25rem; /* Adjust the height as needed */
+    width: 20rem; /* Adjust the width as needed */
+    border-radius: 1.5rem; /* This corresponds to the rounded-xl in Tailwind */
+    background: linear-gradient(to bottom right, #93c5fd, #d4aaff);
+  }
+  .element2 {
+    position: absolute;
+    top: 1rem; /* Adjust the top position as needed */
+    right: 1rem; /* Adjust the right position as needed */
+    bottom: 1rem; /* Adjust the bottom position as needed */
+    left: 1rem; /* Adjust the left position as needed */
+    display: grid;
+    place-content: center;
+    border-radius: 1.5rem; /* This corresponds to the rounded-xl in Tailwind */
+    background-color: #fff; /* Adjust the background color as needed */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* This corresponds to the shadow-lg in Tailwind */
+  }
+  
+  .element3 {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2.25rem; /* This corresponds to the text-4xl in Tailwind */
+  }
+  .element4 {
+    text-align: center;
+    font-size: 1.5rem; /* This corresponds to the text-2xl in Tailwind */
+    font-weight: bold; /* This corresponds to the font-bold in Tailwind */
+  }
+
+  /* YourComponent.css */
+.custom-card {
+    width: 18rem; /* Set the width as needed */
+    margin: 20px; /* Add margin for spacing */
+    border: 1px solid #ccc; /* Add border as needed */
+    border-radius: 8px; /* Add border-radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box-shadow for depth */
+  }
+  
+  .card-body {
+    padding: 20px; /* Add padding as needed */
+  }
+  
+  .card-title {
+    font-size: 1.5rem; /* Customize font-size as needed */
+    margin-bottom: 10px; /* Add margin-bottom as needed */
+  }
+  
+  .card-subtitle {
+    color: #6c757d; /* Customize text color as needed */
+  }
+  
+  .card-text {
+    margin-bottom: 15px; /* Add margin-bottom as needed */
+    font-size: medium;
+  }
+  
+  .price-details {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+  }
+  
+  .card-price {
+    color: #F4C142; /* Customize the color as needed */
+  }
+  
+  .but {
+    background-color: #71154E; /* Customize button color as needed */
+    border-color: #71154E; /* Customize button border color as needed */
+  }

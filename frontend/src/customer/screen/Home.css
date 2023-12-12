@@ -89,3 +89,130 @@
   .feature-box p {
     font-size: 1rem;
   }  
+
+  @-webkit-keyframes moveUp {
+    0% {
+      opacity: 1;
+      -webkit-transform: translateY(40px);
+    } 100% {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+    }
+  }
+  .block {
+    height: 5em;
+    line-height: 5em;
+    width: 10em;
+    background: #464646;
+    color: #fdfdfd;
+    text-align: center;
+    margin: 1em auto;
+    text-shadow: 0 0 1px #333; /* so one can see fadeBgColor properly */
+  }
+  
+  .animatable {
+    
+    /* initially hide animatable objects */
+    visibility: hidden;
+    
+    /* initially pause animatable objects their animations */
+    -webkit-animation-play-state: paused;   
+    -moz-animation-play-state: paused;     
+    -ms-animation-play-state: paused;
+    -o-animation-play-state: paused;   
+    animation-play-state: paused; 
+  }
+  /* show objects being animated */
+  .animated {
+    visibility: visible;
+    
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+  
+    -webkit-animation-play-state: running;
+    -moz-animation-play-state: running;
+    -ms-animation-play-state: running;
+    -o-animation-play-state: running;
+    animation-play-state: running;
+  }
+  @-moz-keyframes moveUp {
+    0% {
+      opacity: 1;
+      -moz-transform: translateY(40px);
+    }
+  
+    100% {
+      opacity: 1;
+      -moz-transform: translateY(0);
+    }
+  }
+  
+  @-o-keyframes moveUp {
+    0% {
+      opacity: 1;
+      -o-transform: translateY(40px);
+    }
+  
+    100% {
+      opacity: 1;
+      -o-transform: translateY(0);
+    }
+  }
+  
+  @keyframes moveUp {
+    0% {
+      opacity: 1;
+      transform: translateY(40px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animated.animationDelay{
+    animation-delay:.4s;
+    -webkit-animation-delay:.4s;
+  }
+  .animated.animationDelayMed{
+    animation-delay:1.2s;
+    -webkit-animation-delay:1.2s;
+  }
+  .animated.animationDelayLong{
+    animation-delay:1.6s;
+    -webkit-animation-delay:1.6s;
+  }
+  .animated.moveUp {
+    -webkit-animation-name: moveUp;
+    -moz-animation-name: moveUp;
+    -o-animation-name: moveUp;
+    animation-name: moveUp;
+  }
+
+  .block {
+    height: 5em;
+    line-height: 5em;
+    width: 10em;
+    background: #464646;
+    color: #fdfdfd;
+    text-align: center;
+    margin: 1em auto;
+    text-shadow: 0 0 1px #333; /* so one can see fadeBgColor properly */
+  }
+
+  .move-up-section {
+    /* Add any styling you need for your section here */
+    /* For example: */
+    padding: 50px;
+    background-color: #f0f0f0;
+} 
+/*  */

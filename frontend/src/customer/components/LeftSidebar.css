@@ -1,0 +1,26 @@
+/* dashboard.css */
+.dashboard-content {
+    padding-top: 20px;
+}
+
+.sidebar {
+    background-color: #f8f9fa; /* Customize background color */
+    border-right: 1px solid #dee2e6; /* Optional: Add a border on the right side */
+    height: 100vh; /* Make sidebar full height */
+    padding-top: 20px; /* Adjust top padding */
+    width: 200px;
+}
+
+.sidebar a {
+    padding: 10px 20px;
+    color: #495057; /* Customize link color */
+    text-decoration: none;
+    font-size: 16px;
+    border-left: 2px solid transparent;
+}
+
+.sidebar a:hover {
+    background-color: #e9ecef; /* Customize hover background color */
+    border-left: 2px solid #007bff; /* Customize hover border color */
+    color: #007bff; /* Customize hover text color */
+}
