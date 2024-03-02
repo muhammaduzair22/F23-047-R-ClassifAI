@@ -2,10 +2,14 @@
 .page-title {
     margin-top: 20px;
     margin-bottom: 40px;
-    margin-left: -250px;
+    /* margin-left: -250px; */
     font-size: 40px;
   }
-  
+  .cards{
+    justify-content: center;
+    align-items: center;
+    margin-left: 75px;
+  }
   .data-insight-card {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -15,6 +19,10 @@
     background-color: #71154E;
     color: azure;
   }
+.data-insight-card:hover {
+    background-color: #98276c;
+    animation: pulse 2s infinite;
+  }
   
   .data-value {
     font-size: 1.5rem;
@@ -23,11 +31,21 @@
     color: #F4C142; /* Customize the color as needed */
   }
   
-  .chart-col {
+  .graph {
     text-align: center;
-    margin-top: 20px;
-  }
-.graph{
-    width: 700px;
-    height: 300px;
+    margin-top: 50px !important; /* Add !important to override conflicting styles */
+    width: 50%;
+}
+
+
+.bar {
+  margin-top: 50px !important; /* Add !important to override conflicting styles */
+    max-width: 700px !important; /* Set a max-width if needed */
+    height: 300px !important;
+}
+
+.pie {
+  margin-top: 50px !important; /* Add !important to override conflicting styles */
+    max-width: 500px !important; /* Set a max-width if needed */
+    height: 300px !important;
 }

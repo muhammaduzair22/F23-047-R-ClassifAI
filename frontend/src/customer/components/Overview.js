@@ -1,4 +1,3 @@
-// OverviewPage.js
 import React, { useEffect, useRef } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Chart from 'chart.js/auto';
@@ -14,10 +13,11 @@ const Overview = () => {
     ];
 
     const chartRef = useRef(null);
+    const pieChartRef = useRef(null);
 
     useEffect(() => {
-        // Create and update charts here using Chart.js
-        const chartData = {
+        // Create and update bar chart
+        const barChartData = {
             labels: dataInsights.map(insight => insight.title),
             datasets: [
                 {
@@ -30,8 +30,8 @@ const Overview = () => {
             ],
         };
 
-        const chartConfig = {
-            type: 'bar', // Change chart type as needed (e.g., 'line', 'doughnut', 'pie')
+        const barChartConfig = {
+            type: 'bar',
             options: {
                 scales: {
                     y: {
@@ -41,25 +41,70 @@ const Overview = () => {
             },
         };
 
-        // Destroy the previous chart if it exists
-        const canvasParent = chartRef.current.parentElement;
-        canvasParent.removeChild(chartRef.current);
+        // Create and update pie chart
+        const pieChartData = {
+            labels: dataInsights.map(insight => insight.title),
+            datasets: [
+                {
+                    label: 'Values',
+                    data: dataInsights.map(insight => insight.value),
+                    backgroundColor: ['#007bff', '#28a745', '#ffc107'], // Customize colors as needed
+                    borderColor: ['#fff', '#fff', '#fff'], // Customize colors as needed
+                    borderWidth: 1,
+                },
+            ],
+        };
 
-        // Create a new canvas element
-        const newCanvas = document.createElement('canvas');
-        chartRef.current = newCanvas;
-        canvasParent.appendChild(newCanvas);
+        const pieChartConfig = {
+            type: 'pie',
+            options: {
+                responsive: true,
+            },
+        };
 
-        const ctx = newCanvas.getContext('2d');
+        // Destroy the previous bar chart canvas if it exists
+        const barChartCanvasParent = chartRef.current?.parentElement;
+        if (barChartCanvasParent) {
+            barChartCanvasParent.removeChild(chartRef.current);
+        }
 
-        // Create a new chart instance
-        const newChart = new Chart(ctx, chartConfig);
+        // Create a new bar chart canvas element
+        const newBarChartCanvas = document.createElement('canvas');
+        chartRef.current = newBarChartCanvas;
+        barChartCanvasParent?.appendChild(newBarChartCanvas);
 
-        // Update the chart data
-        newChart.data = chartData;
+        const barChartCtx = newBarChartCanvas.getContext('2d');
 
-        // Ensure the chart is updated/rendered
-        newChart.update();
+        // Create a new bar chart instance
+        const newBarChart = new Chart(barChartCtx, barChartConfig);
+
+        // Update the bar chart data
+        newBarChart.data = barChartData;
+
+        // Ensure the bar chart is updated/rendered
+        newBarChart.update();
+
+        // Destroy the previous pie chart canvas if it exists
+        const pieChartCanvasParent = pieChartRef.current?.parentElement;
+        if (pieChartCanvasParent) {
+            pieChartCanvasParent.removeChild(pieChartRef.current);
+        }
+
+        // Create a new pie chart canvas element
+        const newPieChartCanvas = document.createElement('canvas');
+        pieChartRef.current = newPieChartCanvas;
+        pieChartCanvasParent?.appendChild(newPieChartCanvas);
+
+        const pieChartCtx = newPieChartCanvas.getContext('2d');
+
+        // Create a new pie chart instance
+        const newPieChart = new Chart(pieChartCtx, pieChartConfig);
+
+        // Update the pie chart data
+        newPieChart.data = pieChartData;
+
+        // Ensure the pie chart is updated/rendered
+        newPieChart.update();
     }, [dataInsights]);
 
     return (
@@ -67,15 +112,18 @@ const Overview = () => {
             <h1 className="page-title">Data Insights</h1>
             <Row>
                 {dataInsights.map((insight, index) => (
-                    <Col key={index} sm={6} md={4} lg={3}>
+                    <Col className="cards" key={index} sm={6} md={4} lg={3}>
                         <div className="data-insight-card">
                             <h2>{insight.title}</h2>
                             <p className="data-value">{insight.value}</p>
                         </div>
                     </Col>
                 ))}
-                <Col sm={12} className="graph chart-col">
-                    <div ref={chartRef}></div>
+                <Col className="bar">
+                    <div className="bar" ref={chartRef}></div>
+                </Col>
+                <Col className="pie">
+                    <div ref={pieChartRef}></div>
                 </Col>
             </Row>
         </Container>

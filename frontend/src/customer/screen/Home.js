@@ -65,7 +65,8 @@ const Home = () => {
         <div>
             <Navbar />
             <div>
-                <ParticleRing />
+                <img src={backgroundImage}></img>
+                {/* <ParticleRing /> */}
             </div>
             <div className="landing-page">
                 {/* <div className="header" style={backgroundStyle}> */}

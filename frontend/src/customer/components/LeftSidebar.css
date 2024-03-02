@@ -4,14 +4,19 @@
 }
 
 .sidebar {
-    background-color: #f8f9fa; /* Customize background color */
-    border-right: 1px solid #dee2e6; /* Optional: Add a border on the right side */
-    height: 100vh; /* Make sidebar full height */
+    background-color: #F4C142; /* Customize background color */
+    border: 3px solid #71154E; /* Optional: Add a border on the right side */
+    border-radius: 20px;
+    height:max-content !important; /* Make sidebar full height */
     padding-top: 20px; /* Adjust top padding */
     width: 200px;
+    margin-top: 30px;
+    padding-bottom: 20px; /* Adjust top padding */
+
 }
 
 .sidebar a {
+
     padding: 10px 20px;
     color: #495057; /* Customize link color */
     text-decoration: none;
@@ -21,6 +26,6 @@
 
 .sidebar a:hover {
     background-color: #e9ecef; /* Customize hover background color */
-    border-left: 2px solid #007bff; /* Customize hover border color */
+    border-left: 5px solid #007bff; /* Customize hover border color */
     color: #007bff; /* Customize hover text color */
 }
