@@ -9,6 +9,8 @@ import backgroundImage from '../images/landing1.jpg'
 import ParticleRing from '../components/ParticleRing';
 import './Home.css';
 import MoveUpSection from '../components/MoveUpSection';
+import Script from 'react-load-script';
+
 const Home = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [isView, setView] = useState(false);
@@ -61,12 +63,35 @@ const Home = () => {
             window.removeEventListener('scroll', handle);
         };
     }, []);
+    useEffect(() => {
+        // Create a script element
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.src = 'https://unpkg.com/@splinetool/viewer@1.0.55/build/spline-viewer.js';
+        script.async = true;
+
+        // Append the script to the document body
+        document.body.appendChild(script);
+
+        // Handle script load
+        script.onload = () => {
+            // Code to run after the script has loaded
+            console.log('Spline Viewer script loaded!');
+        };
+
+        // Clean up: remove the script when the component unmounts
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []); // Empty dependency array ensures this effect runs only once on mount
     return (
         <div>
             <Navbar />
             <div>
-                <img src={backgroundImage}></img>
-                {/* <ParticleRing /> */}
+                {/* <img src={backgroundImage}></img> */}
+                <div>
+                    <spline-viewer url="https://prod.spline.design/V-xyj-dg77oUwTcf/scene.splinecode"></spline-viewer>
+                </div>
             </div>
             <div className="landing-page">
                 {/* <div className="header" style={backgroundStyle}> */}

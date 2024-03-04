@@ -4,13 +4,16 @@
 
 .logo{
   width: 300px;
-  height: 60px;
+  height: 70px;
   border-radius: 10px;
-  margin-left: -90px;
+  margin-left: -80px;
+  margin-top: 10px;
+
 }
 .navbar {
   padding: 0px 0;
-  background-color:#71154e;
+  background-color:#3d0026;
+  margin-bottom: -5px;
 }
 
 .navbar-brand {
