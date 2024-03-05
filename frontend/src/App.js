@@ -7,9 +7,17 @@ import Dashboard from './customer/screen/Dashboard';
 import Subscription from './customer/components/Subscription';
 import Pricing from './customer/components/Pricing'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import "./useScroll.css";
+import { motion, useScroll, useSpring } from "framer-motion"
 
 function App() {
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   const router = createBrowserRouter([
     {
@@ -51,6 +59,7 @@ function App() {
 
   return (
     <div className="App">
+      <motion.div className="progress-bar" style={{ scaleX }}> </motion.div>
       <RouterProvider router={router} forceRefresh={true} />
     </div>
   );

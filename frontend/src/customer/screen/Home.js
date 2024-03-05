@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
-import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'animate.css/animate.min.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Newbutton from './3dBtn'
 import backgroundImage from '../images/landing1.jpg'
 import ParticleRing from '../components/ParticleRing';
 import './Home.css';
 import MoveUpSection from '../components/MoveUpSection';
-import Script from 'react-load-script';
+
+
+
 
 const Home = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -67,8 +69,9 @@ const Home = () => {
         // Create a script element
         const script = document.createElement('script');
         script.type = 'module';
-        script.src = 'https://unpkg.com/@splinetool/viewer@1.0.55/build/spline-viewer.js';
+        script.src = "https://unpkg.com/@splinetool/viewer@1.0.55/build/spline-viewer.js";
         script.async = true;
+
 
         // Append the script to the document body
         document.body.appendChild(script);
@@ -87,12 +90,21 @@ const Home = () => {
     return (
         <div>
             <Navbar />
-            <div>
-                {/* <img src={backgroundImage}></img> */}
-                <div>
-                    <spline-viewer url="https://prod.spline.design/V-xyj-dg77oUwTcf/scene.splinecode"></spline-viewer>
-                </div>
+            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.57/build/spline-viewer.js"></script>
+            <spline-viewer url="https://prod.spline.design/VQK-xLvofoabAViS/scene.splinecode"></spline-viewer>
+            <div className="newbtn">
+                <Newbutton />
+
             </div>
+            {/* <div> */}
+            {/* <img src={backgroundImage}></img> */}
+            {/* 
+                <div>
+                    <spline-viewer loading-anim-type="spinner-big-light" url="https://prod.spline.design/V-xyj-dg77oUwTcf/scene.splinecode"></spline-viewer>
+                </div> */}
+            {/* </div> */}
+
+
             <div className="landing-page">
                 {/* <div className="header" style={backgroundStyle}> */}
                 <div className="header">
