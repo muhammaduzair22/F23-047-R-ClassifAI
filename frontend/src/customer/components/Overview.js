@@ -3,14 +3,17 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Chart from 'chart.js/auto';
 import './Overview.css'; // Import your custom CSS file
 
-const Overview = () => {
+const Overview = (props) => {
     // Placeholder data (replace with your actual data)
-    const dataInsights = [
-        { title: 'Bugs', value: 1000 },
-        { title: 'Enhancements', value: 5000 },
-        { title: 'Questions', value: 3000 },
-        // Add more data insights as needed
-    ];
+
+    const dataInsights = props.dataInsights
+    //  [
+    //     { title: 'Bugs', value: 1000 },
+    //     { title: 'Enhancements', value: 5000 },
+    //     { title: 'Questions', value: 3000 },
+    //     // Add more data insights as needed
+    // ];
+    // dataInsights=props.dataInsights
 
     const chartRef = useRef(null);
     const pieChartRef = useRef(null);

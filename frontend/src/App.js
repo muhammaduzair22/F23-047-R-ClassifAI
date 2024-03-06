@@ -9,6 +9,7 @@ import Pricing from './customer/components/Pricing'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./useScroll.css";
 import { motion, useScroll, useSpring } from "framer-motion"
+import FileUploadComponent from './customer/screen/FileUploadComponent';
 
 function App() {
 
@@ -53,6 +54,10 @@ function App() {
     {
       path: "/Pricing",
       element: <Pricing></Pricing>,
+      errorElement: <h1>Error</h1>,
+    },    {
+      path: "/test",
+      element: <FileUploadComponent/>,
       errorElement: <h1>Error</h1>,
     },
   ]);
