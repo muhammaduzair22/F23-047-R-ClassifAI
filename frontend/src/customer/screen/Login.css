@@ -78,14 +78,14 @@
    .background-radial-gradient {
     background-color: hsl(218, 41%, 15%);
     background-image: radial-gradient(650px circle at 0% 0%,
-        hsl(218, 41%, 35%) 15%,
+        hsl(219, 41%, 35%) 15%,
         hsl(218, 41%, 30%) 35%,
         hsl(218, 41%, 20%) 75%,
         hsl(218, 41%, 19%) 80%,
         transparent 100%),
       radial-gradient(1250px circle at 100% 100%,
         hsl(218, 41%, 45%) 15%,
-        hsl(218, 41%, 30%) 35%,
+        #2d446c 35%,
         hsl(218, 41%, 20%) 75%,
         hsl(218, 41%, 19%) 80%,
         transparent 100%);
@@ -118,4 +118,34 @@
   .loginbox{
     width: 500px;
     margin-left: 100px !important;
+  }
+
+  .login-button {
+    background-color:  #17a2b8;  /* Blue background color */
+    color: white; /* White text color */
+    /* padding: 10px 20px;  */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.3s; /* Smooth transition */
+    height: 50px;
+    width: 400px;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    font-size: 25px;
+  }
+  .icon{
+    margin-left: 125px;
+    padding: 5px;
+
+  }
+  .logintext {
+    color: white; /* White text color */
+    font-size: 25px;
+    text-decoration: none;
+  }
+
+  .login-button:hover {
+    background-color: #117a8b; /* Blue background color */
   }

@@ -118,3 +118,30 @@
     width: 500px;
     margin-left: 100px !important;
   }
+
+  .signup-button {
+    background-color:  #17a2b8;  /* Blue background color */
+    color: white; /* White text color */
+    /* padding: 10px 20px;  */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.3s; /* Smooth transition */
+    height: 50px;
+    width: 400px;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    font-size: 25px;
+  }
+  .signuptext {
+    color: white; /* White text color */
+    font-size: 25px;
+    text-decoration: none;
+    margin-left: 130px;
+
+  }
+
+  .signup-button:hover {
+    background-color: #117a8b; /* Blue background color */
+  }
