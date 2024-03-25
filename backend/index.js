@@ -165,10 +165,12 @@ app.get("/makePrediction/:filename", async (req, res) => {
           res
             .status(200)
             .json(
-              { fileContent: convertArrayOfObjectsToCSV(results), dataInsights: [
-                { title: 'Bugs', value: labelCount.Bug },
-                { title: 'Feature', value: labelCount.Feature },
-                { title: 'Questions', value: labelCount.Question }] } );
+              {
+                fileContent: convertArrayOfObjectsToCSV(results), dataInsights: [
+                  { title: 'Bugs', value: labelCount.Bug },
+                  { title: 'Feature', value: labelCount.Feature },
+                  { title: 'Questions', value: labelCount.Question }]
+              });
         })
         .catch((e) => {
           console.log(e);
