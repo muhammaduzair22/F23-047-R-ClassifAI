@@ -116,13 +116,13 @@ const Navbar = () => {
                                             />
                                             Profile
                                         </a>
-                                        <a className="dropdown-item" href="/Settings">
+                                        <a className="dropdown-item" href="/Dashboard">
                                             <img
                                                 src={settings}
                                                 alt="Settings"
                                                 className="dropdown-icon"
                                             />
-                                            Settings
+                                            Dashboard
                                         </a>
                                         <a className="dropdown-item" onClick={handleLogout} href="Login">
                                             <img

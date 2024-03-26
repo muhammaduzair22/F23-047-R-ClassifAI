@@ -55,9 +55,9 @@ function App() {
       path: "/Pricing",
       element: <Pricing></Pricing>,
       errorElement: <h1>Error</h1>,
-    },    {
+    }, {
       path: "/test",
-      element: <FileUploadComponent/>,
+      element: <FileUploadComponent />,
       errorElement: <h1>Error</h1>,
     },
   ]);

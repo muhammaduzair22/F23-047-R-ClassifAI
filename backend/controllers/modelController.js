@@ -49,7 +49,10 @@ const loadModel = async (req, res) => {
   try {
     const result = await MakePredections("Load Model");
     console.log(result);
-    res.status(200).json({ estimated_time: result.estimated_time });
+    if (result["error"])
+      res.status(200).json({ estimated_time: result.estimated_time });
+    else
+      res.status(200).json({ estimated_time: 5 });
   } catch {
     res.status(500).json({ Error: "Internal Server Error" });
   }
@@ -118,17 +121,17 @@ const makeFilePred = async (req, res) => {
       console.log("results" + results);
       console.log(promsArr);
       await Promise.all(promsArr).then(() => {
-          res.status(200).json({
-            fileContent: convertArrayOfObjectsToCSV(results),
-            dataInsights: [
-              { title: "Bugs", value: labelCount.Bug },
-              { title: "Feature", value: labelCount.Feature },
-              { title: "Questions", value: labelCount.Question },
-            ],
-          });
-        }).catch((e) => {
-          console.log(e);
+        res.status(200).json({
+          fileContent: convertArrayOfObjectsToCSV(results),
+          dataInsights: [
+            { title: "Bugs", value: labelCount.Bug },
+            { title: "Feature", value: labelCount.Feature },
+            { title: "Questions", value: labelCount.Question },
+          ],
         });
+      }).catch((e) => {
+        console.log(e);
+      });
     });
     stream.on("error", (error) => {
       console.error("Error reading file:", error);

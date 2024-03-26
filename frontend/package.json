@@ -29,7 +29,6 @@
     "react-scripts": "^5.0.1",
     "react-spring": "^9.7.3",
     "react-use-measure": "^2.1.1",
-    "tailwindcss": "^3.3.6",
     "three": "^0.162.0",
     "web-vitals": "^2.1.4"
   },
@@ -56,5 +55,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "postcss-nested": "^6.0.1",
+    "postcss-nesting": "^12.1.0",
+    "tailwindcss": "^3.4.1"
   }
 }

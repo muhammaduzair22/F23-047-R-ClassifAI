@@ -8,55 +8,75 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import upload from "../images/upload.gif";
 import axios from "axios";
-import { color } from "framer-motion";
+import MessageBox from "../components/MessageBox";
 
 const Dashboard = () => {
   const [fileName, setFileName] = useState("");
   const [resData, setResData] = useState({ fileContent: "", dataInsights: [] });
+  const [message, setMessage] = useState("");
+  const [showMessageBox, setShowMessageBox] = useState(false);
 
   const onDrop = useCallback(async (acceptedFiles) => {
     console.log("Accepted Files:", acceptedFiles[0]);
     const formData = new FormData();
     formData.append("csv", acceptedFiles[0]);
     const token = localStorage.getItem("token");
-    if (token)
-      await axios.post("http://localhost:3001/model/fileUpload",
-          formData,       
+    if (token) {
+      try {
+        const response = await axios.post(
+          "http://localhost:3001/model/fileUpload",
+          formData,
           {
-            headers: {Authorization: token}
-          },
-        ).then((res) => {
-            setFileName(res.data.fileName);
-            alert("File Uploaded");
-        }).catch((err) => {
-            
-            alert(err);
-        })
-    else alert("Token not found");
+            headers: { Authorization: token },
+          }
+        );
+        setFileName(response.data.fileName);
+        setMessage("File Uploaded");
+        setShowMessageBox(true);
+      } catch (error) {
+        setMessage("Error uploading file");
+        setShowMessageBox(true);
+        console.error("Error uploading file:", error);
+      }
+    } else {
+      setMessage("Token not found");
+      setShowMessageBox(true);
+    }
   }, []);
 
   const handleClick = async () => {
     console.log("Button Clicked");
     const token = localStorage.getItem("token");
-    if (token)
-    await axios.get(`http://localhost:3001/model/makePrediction/${fileName}`, 
-      {
-        headers: {Authorization: token}
+    if (token) {
+      try {
+        const response = await axios.get(
+          `http://localhost:3001/model/makePrediction/${fileName}`,
+          {
+            headers: { Authorization: token },
+          }
+        );
+        setResData(response.data);
+      } catch (error) {
+        console.error("Error making prediction:", error);
+        setMessage("Error making prediction");
+        setShowMessageBox(true);
       }
-    ).then((res) => {setResData(res.data);}).catch((err) => {alert("error when get");});
-    else alert("Token Not Found")
+    } else {
+      setMessage("Token not found");
+      setShowMessageBox(true);
+    }
   };
 
-  const downloadCSV =()=>{
-    const blob = new Blob([resData.fileContent],{type:'text/csv'})
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a');
+  const downloadCSV = () => {
+    const blob = new Blob([resData.fileContent], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
     a.href = url;
-    a.download = 'ClassifAI_output.csv';
+    a.download = "ClassifAI_output.csv";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-  }
+  };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -66,7 +86,7 @@ const Dashboard = () => {
 
   return (
     <div className="page">
-      <Navbar></Navbar>
+      <Navbar />
       <Container fluid>
         <Row>
           <Col ClassName="sidebar" sm={2}>
@@ -77,9 +97,8 @@ const Dashboard = () => {
             {/* Main Content Area */}
 
             <div
-              className={`file-upload-container ${
-                isDragActive ? "drag-active" : ""
-              }`}
+              className={`file-upload-container ${isDragActive ? "drag-active" : ""
+                }`}
             >
               <div {...getRootProps()} className="upload-box">
                 <input {...getInputProps()} type="file" id="file" />
@@ -98,12 +117,18 @@ const Dashboard = () => {
               <Overview dataInsights={resData.dataInsights} />
             </div>
             {/* Add other components here, e.g., Results, Subscription, ProfileSettings, etc. */}
-            <br></br>
+            <br />
           </Col>
         </Row>
       </Container>
 
-      <Footer></Footer>
+      <Footer />
+      {showMessageBox && (
+        <MessageBox
+          message={message}
+          onClose={() => setShowMessageBox(false)}
+        />
+      )}
     </div>
   );
 };
