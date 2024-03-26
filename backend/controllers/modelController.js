@@ -117,8 +117,7 @@ const makeFilePred = async (req, res) => {
       // res.send(results);
       console.log("results" + results);
       console.log(promsArr);
-      await Promise.all(promsArr)
-        .then(() => {
+      await Promise.all(promsArr).then(() => {
           res.status(200).json({
             fileContent: convertArrayOfObjectsToCSV(results),
             dataInsights: [
@@ -127,8 +126,7 @@ const makeFilePred = async (req, res) => {
               { title: "Questions", value: labelCount.Question },
             ],
           });
-        })
-        .catch((e) => {
+        }).catch((e) => {
           console.log(e);
         });
     });
