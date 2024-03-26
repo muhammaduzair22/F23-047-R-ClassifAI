@@ -47,6 +47,17 @@ const Dashboard = () => {
     else alert("Token Not Found")
   };
 
+  const downloadCSV =()=>{
+    const blob = new Blob([resData.fileContent],{type:'text/csv'})
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'ClassifAI_output.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept:
@@ -79,6 +90,7 @@ const Dashboard = () => {
               </div>
             </div>
             <button onClick={handleClick}>Get Insights</button>
+            <button onClick={downloadCSV}>Download CSV</button>
             <div>
               <p>{resData.fileContent}</p>
             </div>

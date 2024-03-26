@@ -56,3 +56,8 @@ exports.login = async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 };
+
+// valid controller
+exports.valid = async (req, res) => {
+  res.status(200).json({"message": "token valid"})
+};
