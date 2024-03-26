@@ -72,6 +72,9 @@
   margin-right: 10px;
 }
 
+.dropdown {
+  margin-left: 450px;
+}
 .dropdown-item:hover {
   background-color: #17a2b8 !important;
   color: #fff;
@@ -90,7 +93,7 @@
 }
 
 .profile{
-  margin-left: 830px;
+  /* margin-left: 830px; */
   margin-right: 0px;
 }
 .login{

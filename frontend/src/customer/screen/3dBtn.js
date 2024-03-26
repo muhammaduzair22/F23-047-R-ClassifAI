@@ -26,7 +26,7 @@ export default function App() {
                 whileTap="press"
                 variants={{
                     rest: { scale: 1 },
-                    hover: { scale: 1.5 },
+                    hover: { scale: 1.3 },
                     press: { scale: 1.4 }
                 }}
                 onHoverStart={() => {
@@ -66,10 +66,10 @@ export default function App() {
                     </div>
                 </motion.div>
                 <motion.div
-                    variants={{ hover: { scale: 0.85 }, press: { scale: 1.1 } }}
+                    variants={{ hover: { scale: 1.1 }, press: { scale: 1.2 } }}
                     className="label"
                 >
-                    play
+                    Get Started!
                 </motion.div>
             </motion.button>
         </MotionConfig>

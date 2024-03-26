@@ -92,10 +92,13 @@ const Home = () => {
             <Navbar />
             <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.57/build/spline-viewer.js"></script>
             <spline-viewer url="https://prod.spline.design/VQK-xLvofoabAViS/scene.splinecode"></spline-viewer>
-            <div className="newbtn">
-                <Newbutton />
-
+            <div className="newbtn" style={{ position: 'absolute', top: 550, left: 20, zIndex: 1 }} >
+                <a className="getstarted" href="Login">
+                    <Newbutton />
+                </a>
             </div>
+
+
             {/* <div> */}
             {/* <img src={backgroundImage}></img> */}
             {/* 

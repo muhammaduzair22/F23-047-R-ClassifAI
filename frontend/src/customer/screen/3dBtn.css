@@ -16,11 +16,13 @@ button {
   border-radius: 60px;
   outline: none;
   margin: 0;
-  padding: 12px 25px;
+  /* padding: 12px 2px; */
+  /* padding: 5px; */
+
   font-family: "Poppins";
-  font-size: 48px;
+  font-size: 20px;
   font-weight: 600;
-  line-height: 48px;
+  /* line-height: 48px; */
   letter-spacing: -1px;
   position: relative;
   text-align: center;
@@ -83,78 +85,7 @@ button {
   transform: translateZ(0);
   font-weight: 700;
   z-index: 1;
-}
-
-.default {
-  /* display: block; */
-}
-
-.number {
-  /* padding: 20px 0;
-  width: 88px;
-  position: relative;
-  transform: translateZ(0); */
-}
-
-.number:before {
-  /* content: "";
-  position: absolute;
-  left: 0;
-  top: 1px;
-  bottom: 1px;
-  width: 1px;
-  background-color: #35373f;*/
-} 
-
-.current {
-  /* color: #8a8d9b;
-  opacity: 1;
-  display: block; */
-}
-
-.new {
-  /* color: #fbfaaa;
-  position: absolute;
-  top: 20px;
-  left: 0;
-  right: 0;
-  display: block; */
-}
-
-.add {
-  /* position: absolute;
-  bottom: 100%;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  transform: translateY(38px);
-  pointer-events: none;
-  color: #d0d0db;
-  display: block; */
-}
-
-html {
-  /* box-sizing: border-box;
-  -webkit-font-smoothing: antialiased; */
-}
-
-* {
-  /* box-sizing: inherit; */
-}
-
-*:before,
-*:after {
-  /* box-sizing: inherit; */
-}
-
-body {
-  /* min-height: 100vh;
-  display: flex;
-  font-family: "Inter", Arial;
-  justify-content: center;
-  align-items: center;
-  background: #f4f5fa; */
-}
+}   
 
 /* devanagari */
 @font-face {

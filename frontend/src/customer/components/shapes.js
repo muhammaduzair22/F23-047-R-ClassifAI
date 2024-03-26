@@ -1,3 +1,5 @@
+// Shape.js
+
 import { motion } from "framer-motion-3d";
 import { MotionConfig } from "framer-motion";
 import { useRef, useLayoutEffect } from "react";
@@ -40,6 +42,7 @@ export function Shapes({ isHover, isPress, mouseX, mouseY }) {
 export function Lights() {
     return (
         <>
+            <ambientLight intensity={1.5} />
             <spotLight color="#61dafb" position={[-10, -10, -10]} intensity={0.2} />
             <spotLight color="#61dafb" position={[-10, 0, 15]} intensity={0.8} />
             <spotLight color="#61dafb" position={[-5, 20, 2]} intensity={0.5} />
@@ -54,7 +57,7 @@ export function Sphere() {
     return (
         <motion.mesh position={[-0.5, -0.5, 0]} variants={{ hover: { z: 2 } }}>
             <sphereGeometry args={[0.4]} />
-            <Material />
+            <meshPhongMaterial color="#61dafb" />
         </motion.mesh>
     );
 }
@@ -74,7 +77,7 @@ export function Cone() {
             }}
         >
             <coneGeometry args={[0.3, 0.6, 20]} />
-            <Material />
+            <meshPhongMaterial color="#f2056f" />
         </motion.mesh>
     );
 }
@@ -93,7 +96,7 @@ export function Torus() {
             }}
         >
             <torusGeometry args={[0.2, 0.1, 10, 50]} />
-            <Material />
+            <meshPhongMaterial color="#db07d1" />
         </motion.mesh>
     );
 }
@@ -113,13 +116,13 @@ export function Icosahedron() {
             }}
         >
             <icosahedronGeometry args={[0.7, 0]} />
-            <Material />
+            <meshPhongMaterial color="#acc7ed" />
         </motion.mesh>
     );
 }
 
-export function Material() {
-    return <meshPhongMaterial color="#fff" specular="#61dafb" shininess={10} />;
+export function Material({ color }) {
+    return <meshPhongMaterial color={color} />;
 }
 
 // Adapted from https://github.com/pmndrs/drei/blob/master/src/core/PerspectiveCamera.tsx
