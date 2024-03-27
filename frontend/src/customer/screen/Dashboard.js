@@ -15,6 +15,7 @@ const Dashboard = () => {
   const [resData, setResData] = useState({ fileContent: "", dataInsights: [] });
   const [message, setMessage] = useState("");
   const [showMessageBox, setShowMessageBox] = useState(false);
+  const [isBlurred, setIsBlurred] = useState(false);
 
   const onDrop = useCallback(async (acceptedFiles) => {
     console.log("Accepted Files:", acceptedFiles[0]);
@@ -33,14 +34,17 @@ const Dashboard = () => {
         setFileName(response.data.fileName);
         setMessage("File Uploaded");
         setShowMessageBox(true);
+        setIsBlurred(true);
       } catch (error) {
         setMessage("Error uploading file");
         setShowMessageBox(true);
+        setIsBlurred(true);
         console.error("Error uploading file:", error);
       }
     } else {
       setMessage("Token not found");
       setShowMessageBox(true);
+      setIsBlurred(true);
     }
   }, []);
 
@@ -60,10 +64,12 @@ const Dashboard = () => {
         console.error("Error making prediction:", error);
         setMessage("Error making prediction");
         setShowMessageBox(true);
+        setIsBlurred(true);
       }
     } else {
       setMessage("Token not found");
       setShowMessageBox(true);
+      setIsBlurred(true);
     }
   };
 
@@ -85,7 +91,7 @@ const Dashboard = () => {
   });
 
   return (
-    <div className="page">
+    <div className={`page ${isBlurred ? "blurred" : ""}`}>
       <Navbar />
       <Container fluid>
         <Row>
@@ -108,8 +114,8 @@ const Dashboard = () => {
                 </p>
               </div>
             </div>
-            <button onClick={handleClick}>Get Insights</button>
-            <button onClick={downloadCSV}>Download CSV</button>
+            <button className="insights" onClick={handleClick}>Get Insights</button>
+            <button className="download" onClick={downloadCSV}>Download CSV</button>
             <div>
               <p>{resData.fileContent}</p>
             </div>
@@ -124,10 +130,18 @@ const Dashboard = () => {
 
       <Footer />
       {showMessageBox && (
-        <MessageBox
-          message={message}
-          onClose={() => setShowMessageBox(false)}
-        />
+        <>
+          <div className="message-box">
+            <MessageBox
+              message={message}
+              onClose={() => {
+                setShowMessageBox(false);
+                setIsBlurred(false);
+              }}
+            />
+          </div>
+          <div className={`overlay ${isBlurred ? "blurred" : ""}`} />
+        </>
       )}
     </div>
   );

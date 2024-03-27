@@ -52,7 +52,7 @@ const loadModel = async (req, res) => {
     if (result["error"])
       res.status(200).json({ estimated_time: result.estimated_time });
     else
-      res.status(200).json({ estimated_time: 5 });
+      res.status(200).json({ estimated_time: 20 });
   } catch {
     res.status(500).json({ Error: "Internal Server Error" });
   }

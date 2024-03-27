@@ -5,10 +5,10 @@ import 'animate.css/animate.min.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Newbutton from './3dBtn'
-import backgroundImage from '../images/landing1.jpg'
-import ParticleRing from '../components/ParticleRing';
+// import backgroundImage from '../images/landing1.jpg'
+// import ParticleRing from '../components/ParticleRing';
 import './Home.css';
-import MoveUpSection from '../components/MoveUpSection';
+// import MoveUpSection from '../components/MoveUpSection';
 
 
 
