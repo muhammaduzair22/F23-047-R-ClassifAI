@@ -1,6 +1,10 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+//const passport = require('passport');
+
+
+
 
 // Signup controller
 exports.signup = async (req, res) => {
@@ -19,7 +23,8 @@ exports.signup = async (req, res) => {
       lastName,
       organization,
       email,
-      password
+      password,
+      subscriptionType
     });
 
     await user.save();
@@ -56,6 +61,19 @@ exports.login = async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 };
+
+ //Google auth login
+// exports.googleLogin = passport.authenticate('google', { scope: ['profile', 'email'] });
+
+// exports.googleCallback = passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
+//     // Successful authentication, redirect home.
+//     res.redirect('/');
+// };
+
+// exports.logout = (req, res) => {
+//     req.logout();
+//     res.redirect('/');
+// };
 
 // valid controller
 exports.valid = async (req, res) => {
