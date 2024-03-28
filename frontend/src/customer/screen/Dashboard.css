@@ -12,6 +12,7 @@
 }
 .page{
     background-color:aliceblue;
+    height: 100%;
 }
 
 .uploadlogo {
@@ -74,6 +75,28 @@
   .overlay.blurred {
     backdrop-filter: blur(5px); /* Apply blur effect to overlay */
   }
+
+  .buttonsDiv{
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:50px
+  }
+   .dashButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px ;
+    padding-right:20px ;
+    padding-left:20px ;
+   }
+   .dashButton:hover{
+    background-color: rgb(95, 140, 255);
+   }
+   .dashButton:focus{
+    background-color: rgb(95, 140, 255);
+   }
   
 /* 
 .insights{

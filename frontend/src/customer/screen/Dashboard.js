@@ -16,6 +16,7 @@ const Dashboard = () => {
   const [message, setMessage] = useState("");
   const [showMessageBox, setShowMessageBox] = useState(false);
   const [isBlurred, setIsBlurred] = useState(false);
+  const [loading, setLoading]= useState(0) //0 is inital, 1 for loading, 2 for loaded
 
   const onDrop = useCallback(async (acceptedFiles) => {
     console.log("Accepted Files:", acceptedFiles[0]);
@@ -50,6 +51,7 @@ const Dashboard = () => {
 
   const handleClick = async () => {
     console.log("Button Clicked");
+    setLoading(1)
     const token = localStorage.getItem("token");
     if (token) {
       try {
@@ -60,17 +62,20 @@ const Dashboard = () => {
           }
         );
         setResData(response.data);
+        setLoading(2)
       } catch (error) {
         console.error("Error making prediction:", error);
         setMessage("Error making prediction");
         setShowMessageBox(true);
         setIsBlurred(true);
+        setLoading(0)
       }
     } else {
       setMessage("Token not found");
       setShowMessageBox(true);
       setIsBlurred(true);
     }
+
   };
 
   const downloadCSV = () => {
@@ -109,19 +114,23 @@ const Dashboard = () => {
               <div {...getRootProps()} className="upload-box">
                 <input {...getInputProps()} type="file" id="file" />
                 <img className="uploadlogo" src={upload} size={40} />
-                <p className="upload-text">
-                  Click or drag 'n' drop CSV or Excel files here
-                </p>
+                { (fileName!="") ? <p className="upload-text">{fileName}</p>:<p className="upload-text">Click or drag 'n' drop CSV or Excel files here</p>}
               </div>
             </div>
-            <button className="insights" onClick={handleClick}>Get Insights</button>
-            <button className="download" onClick={downloadCSV}>Download CSV</button>
-            <div>
+            <div className="buttonsDiv">
+              <button onClick={handleClick} className="dashButton">
+              { (loading==1)? <img width="30px" src="https://discuss.wxpython.org/uploads/default/original/2X/6/6d0ec30d8b8f77ab999f765edd8866e8a97d59a3.gif"></img>:<></>}
+              Get Insights
+              </button>
+              <button className="dashButton" onClick={downloadCSV}>Download CSV</button>
+            </div>
+           
+            {/* <div>
               <p>{resData.fileContent}</p>
-            </div>
-            <div>
+            </div> */}
+            { (loading==2)?<div>
               <Overview dataInsights={resData.dataInsights} />
-            </div>
+            </div>:<></> }
             {/* Add other components here, e.g., Results, Subscription, ProfileSettings, etc. */}
             <br />
           </Col>

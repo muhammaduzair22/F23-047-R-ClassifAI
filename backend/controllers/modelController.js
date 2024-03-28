@@ -3,6 +3,9 @@ const csv = require("csv-parser");
 const fs = require('fs');
 require("dotenv").config();
 const Hugging_Face_Token = process.env.Hugging_Face_Token;
+
+const subscriptionLimits= {"free":50,"Starter_Plan":500, "Pro":5000, "Enterprise":50000}
+
 //Helper function to make call to Model for predictions
 const MakePredections = async (input) => {
   try {
@@ -52,7 +55,7 @@ const loadModel = async (req, res) => {
     if (result["error"])
       res.status(200).json({ estimated_time: result.estimated_time });
     else
-      res.status(200).json({ estimated_time: 20 });
+      res.status(200).json({ estimated_time: 5 });
   } catch {
     res.status(500).json({ Error: "Internal Server Error" });
   }
@@ -98,13 +101,18 @@ const makeFilePred = async (req, res) => {
   const filename = "uploads/" + req.params.filename;
   let labelCount = { Bug: 0, Feature: 0, Question: 0 };
   const promsArr = [];
+  console.log("Req.user:",req.user)
+  const limit=subscriptionLimits[req.user.subscriptionType]
+  console.log("limit:",limit)
   try {
     const results = [];
+    let i=0
     const stream = fs
       .createReadStream(filename, { encoding: "utf-8" })
       .pipe(csv())
       .on("data", async (data) => {
         try {
+          if (i<limit) 
           promsArr.push(
             MakePredections(data["Issue"]).then((label) => {
               data["label"] = label;
@@ -112,6 +120,7 @@ const makeFilePred = async (req, res) => {
               results.push(data);
             })
           );
+          i++
         } catch (error) {
           console.error("Error making predictions:", error);
         }

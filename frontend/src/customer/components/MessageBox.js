@@ -18,8 +18,8 @@ const MessageBox = ({ message, onClose }) => {
                     }
                 }
             );
-            const timeInSeconds = response.data.timeInSeconds;
-            await new Promise((resolve) => setTimeout(resolve, timeInSeconds * 1000));
+            const timeInSeconds = response.data.estimated_time;
+            await new Promise((resolve) => setTimeout(resolve, timeInSeconds * 1000)).then(O=>onClose()); // .then does auto close  
             setLoading(false);
             setModelLoaded(true);
         } catch (error) {
@@ -40,7 +40,8 @@ const MessageBox = ({ message, onClose }) => {
                     <>
                         <p className="msg">{message}</p>
                         {loading ? (
-                            <div className="loading-spinner"></div>
+                            <><div className="loading-spinner"></div> <p className="msg">Model Loading</p></>
+                            
                         ) : (
                             <button className="loadmodel" onClick={handleLoadModel}>Load Model</button>
                         )}
