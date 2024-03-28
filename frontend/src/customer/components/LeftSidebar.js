@@ -1,62 +1,54 @@
 import React, { useState, useCallback } from "react";
 import { Nav } from 'react-bootstrap';
-import axios from "axios";
 import './LeftSidebar.css'
+import logout from "../images/logout.gif"
+import Dashboard from "../images/dashboard.gif"
+import Result from "../images/result.gif"
+import Subscription from "../images/subscribe.gif"
+
 const LeftSidebar = () => {
 
-    const [fileName, setFileName] = useState("");
-    const [resData, setResData] = useState({ fileContent: "", dataInsights: [] });
-    const [message, setMessage] = useState("");
-    const [showMessageBox, setShowMessageBox] = useState(false);
-    const [isBlurred, setIsBlurred] = useState(false);
-
-    const handleClick = async () => {
-        console.log("Button Clicked");
-        const token = localStorage.getItem("token");
-        if (token) {
-            try {
-                const response = await axios.get(
-                    `http://localhost:3001/model/makePrediction/${fileName}`,
-                    {
-                        headers: { Authorization: token },
-                    }
-                );
-                setResData(response.data);
-            } catch (error) {
-                console.error("Error making prediction:", error);
-                setMessage("Error making prediction");
-                setShowMessageBox(true);
-                setIsBlurred(true);
-            }
-        } else {
-            setMessage("Token not found");
-            setShowMessageBox(true);
-            setIsBlurred(true);
-        }
-    };
-
-    const downloadCSV = () => {
-        const blob = new Blob([resData.fileContent], { type: "text/csv" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "ClassifAI_output.csv";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
+    const handleLogout = () => {
+        // Clear token from local storage and update login status
+        localStorage.removeItem('token');
+        setIsLoggedIn(false);
+        // Redirect to the login page after logout
+        // history.push('/Login');
     };
 
     return (
         <Nav defaultActiveKey="/home" className="flex-column sidebar">
-            <Nav.Link href="/Dashboard">Dashboard</Nav.Link>
-            <Nav.Link href="/results">Results</Nav.Link>
-            <Nav.Link href="/subscription">Subscription</Nav.Link>
-            <Nav.Link className="a" onClick={handleClick}>Get Insights</Nav.Link>
-            <Nav.Link className="a" onClick={downloadCSV}>Download CSV</Nav.Link>
+            <Nav.Link href="/Dashboard">
+                <img
+                    src={Dashboard}
+                    alt="Dashboard"
+                    className="dropdown-icon"
+                />
+                Dashboard</Nav.Link>
+            <Nav.Link className="data" href="/results">
+                <img
+                    src={Result}
+                    alt="Result"
+                    className="dropdown-icon"
+                />
+                Results</Nav.Link>
+            <Nav.Link className="data2" href="/subscription">
+                <img
+                    src={Subscription}
+                    alt="Subscription"
+                    className="dropdown-icon"
+                />
 
-            {/* <button className="insights" onClick={handleClick}>Get Insights</button>
-            <button className="download" onClick={downloadCSV}>Download CSV</button> */}
-            {/* Add more links for other sections */}
+                Subscription</Nav.Link>
+            <Nav.Link className="data" href="/Login" onClick={handleLogout}>
+                <img
+                    src={logout}
+                    alt="Logout"
+                    className="dropdown-icon"
+                />
+                Logout</Nav.Link>
+
         </Nav>
     );
 };

@@ -4,29 +4,35 @@
     min-height: 100vh;
 }
 
+/* LeftSidebar.css */
 .sidebar {
-    background-color: #F4C142; /* Customize background color */
-    border: 3px solid #71154E; /* Optional: Add a border on the right side */
+    background-color: #F4C142;
+    border: 3px solid #71154E;
     border-radius: 20px;
-    height:max-content !important; /* Make sidebar full height */
-    padding-top: 20px; /* Adjust top padding */
+    height: max-content !important;
+    padding-top: 20px;
     width: 200px;
     margin-top: 30px;
-    padding-bottom: 20px; /* Adjust top padding */
-
+    padding-bottom: 20px;
 }
 
 .sidebar a {
-
+    display: flex; /* Add this to make flexbox work */
+    align-items: center; /* Align content vertically to the center */
     padding: 10px 20px;
-    color: #495057; /* Customize link color */
+    color: #495057;
     text-decoration: none;
     font-size: 16px;
     border-left: 2px solid transparent;
 }
 
 .sidebar a:hover {
-    background-color: #e9ecef; /* Customize hover background color */
-    border-left: 5px solid #007bff; /* Customize hover border color */
-    color: #007bff; /* Customize hover text color */
+    background-color: #e9ecef;
+    border-left: 5px solid #007bff;
+    color: #007bff;
+}
+
+/* Apply margin to the icons */
+.sidebar img {
+    margin-right: 10px; /* Adjust as needed */
 }

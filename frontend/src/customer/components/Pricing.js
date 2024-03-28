@@ -109,9 +109,12 @@ const TiltCard1 = () => {
                         <div className="card-body"> */}
                     <h2 className="card-title">Starter Plan</h2>
                     <p className="card-subtitle mb-2 text-muted">Category</p>
+                    <br></br>
                     <p className="card-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel efficitur quam.
+                        Get 500 Issues ClassifAI-ed
                     </p>
+                    <br></br>
+
                     <div className="price-details">
                         <h4 className="card-price">$9.99/Month</h4>
                     </div>
@@ -196,9 +199,11 @@ const TiltCard2 = () => {
 
                     <h2 className="card-title">PRO</h2>
                     <p className="card-subtitle mb-2 text-muted">Category</p>
+                    <br></br>
                     <p className="card-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel efficitur quam.
+                        Get 5000 Issues ClassifAI-ed
                     </p>
+                    <br></br>
                     <div className="price-details">
                         <h4 className="card-price">29.99/Month</h4>
                     </div>
@@ -281,9 +286,11 @@ const TiltCard3 = () => {
 
                     <h2 className="card-title">Enterprise</h2>
                     <p className="card-subtitle mb-2 text-muted">Category</p>
+                    <br></br>
                     <p className="card-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel efficitur quam.
+                        Get 50000 Issues ClassifAI-ed
                     </p>
+                    <br></br>
                     <div className="price-details">
                         <h4 className="card-price">$59.99/Month</h4>
                     </div>

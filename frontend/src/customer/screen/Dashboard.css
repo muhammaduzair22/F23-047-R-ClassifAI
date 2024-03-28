@@ -81,7 +81,9 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap:50px
+    gap:50px;
+    color: #71154E;
+    /* background-color: #F4C142 !important; */
   }
    .dashButton{
     display: flex;
@@ -90,35 +92,25 @@
     gap: 10px ;
     padding-right:20px ;
     padding-left:20px ;
+    height: 50px;
+    color: #71154E;
+    background-color: #F4C142 !important;
    }
    .dashButton:hover{
-    background-color: rgb(95, 140, 255);
-   }
+    background-color: #71154E !important;
+    color: #F4C142;
+    scale: 1.1; 
+    transition: 0.5s;   
+  }
+
    .dashButton:focus{
-    background-color: rgb(95, 140, 255);
+    background-color: #71154E !important;
+    color: #F4C142;    scale: 1.1; 
+    transition: 0.5s;
    }
   
-/* 
-.insights{
-  top: 30px;
-  left: 20%;
-  color: #71154E;
-  background-color: #F4C142 !important;
-}
-.insights:hover{
-  background-color: #3ab022 !important;
-  scale: 1.1; 
-  transition: 0.5s;
-}
 
-.download{
-  top: 30px;
-  left: 20%;
-  color: #71154E;
-  background-color: #F4C142 !important;
+.sample{
+  border-color: #71154E;
+  border: 5px solid #71154E;
 }
-.download:hover{
-  background-color: #3ab022 !important;
-  scale: 1.1; 
-  transition: 0.5s;
-} */

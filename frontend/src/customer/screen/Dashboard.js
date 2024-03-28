@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 import upload from "../images/upload.gif";
 import axios from "axios";
 import MessageBox from "../components/MessageBox";
+import Sample from "../images/sample.jpeg";
 
 const Dashboard = () => {
   const [fileName, setFileName] = useState("");
@@ -16,7 +17,8 @@ const Dashboard = () => {
   const [message, setMessage] = useState("");
   const [showMessageBox, setShowMessageBox] = useState(false);
   const [isBlurred, setIsBlurred] = useState(false);
-  const [loading, setLoading]= useState(0) //0 is inital, 1 for loading, 2 for loaded
+  const [loading, setLoading] = useState(0); //0 is initial, 1 for loading, 2 for loaded
+  const [isSampleHidden, setIsSampleHidden] = useState(false); // State to control sample image visibility
 
   const onDrop = useCallback(async (acceptedFiles) => {
     console.log("Accepted Files:", acceptedFiles[0]);
@@ -51,7 +53,7 @@ const Dashboard = () => {
 
   const handleClick = async () => {
     console.log("Button Clicked");
-    setLoading(1)
+    setLoading(1);
     const token = localStorage.getItem("token");
     if (token) {
       try {
@@ -62,20 +64,20 @@ const Dashboard = () => {
           }
         );
         setResData(response.data);
-        setLoading(2)
+        setLoading(2);
+        setIsSampleHidden(true); // Hide the sample image when insights are fetched
       } catch (error) {
         console.error("Error making prediction:", error);
         setMessage("Error making prediction");
         setShowMessageBox(true);
         setIsBlurred(true);
-        setLoading(0)
+        setLoading(0);
       }
     } else {
       setMessage("Token not found");
       setShowMessageBox(true);
       setIsBlurred(true);
     }
-
   };
 
   const downloadCSV = () => {
@@ -106,31 +108,35 @@ const Dashboard = () => {
           </Col>
           <Col sm={10} className="dashboard-content">
             {/* Main Content Area */}
-
             <div
-              className={`file-upload-container ${isDragActive ? "drag-active" : ""
-                }`}
+              className={`file-upload-container ${isDragActive ? "drag-active" : ""}`}
             >
               <div {...getRootProps()} className="upload-box">
                 <input {...getInputProps()} type="file" id="file" />
                 <img className="uploadlogo" src={upload} size={40} />
-                { (fileName!="") ? <p className="upload-text">{fileName}</p>:<p className="upload-text">Click or drag 'n' drop CSV or Excel files here</p>}
+                {(fileName != "") ? <p className="upload-text">{fileName}</p> : <p className="upload-text">Click or drag 'n' drop CSV or Excel files here</p>}
               </div>
             </div>
-            <div className="buttonsDiv">
+            <div className="buttonsDiv insights">
               <button onClick={handleClick} className="dashButton">
-              { (loading==1)? <img width="30px" src="https://discuss.wxpython.org/uploads/default/original/2X/6/6d0ec30d8b8f77ab999f765edd8866e8a97d59a3.gif"></img>:<></>}
-              Get Insights
+                {(loading == 1) ? <img width="30px" src="https://discuss.wxpython.org/uploads/default/original/2X/6/6d0ec30d8b8f77ab999f765edd8866e8a97d59a3.gif"></img> : <></>}
+                Get Insights
               </button>
-              <button className="dashButton" onClick={downloadCSV}>Download CSV</button>
+              <button className="dashButton download" onClick={downloadCSV}>Download CSV</button>
             </div>
-           
-            {/* <div>
-              <p>{resData.fileContent}</p>
-            </div> */}
-            { (loading==2)?<div>
+            <br></br>
+            <div className="sample-container">
+              {/* Conditionally render sample image based on loading state and sample visibility */}
+              {!isSampleHidden && (
+                <>
+                  <h2>Sample File csv</h2>
+                  <img src={Sample} alt="Sample" className="sample" />
+                </>
+              )}
+            </div>
+            {(loading == 2) ? <div>
               <Overview dataInsights={resData.dataInsights} />
-            </div>:<></> }
+            </div> : <></>}
             {/* Add other components here, e.g., Results, Subscription, ProfileSettings, etc. */}
             <br />
           </Col>

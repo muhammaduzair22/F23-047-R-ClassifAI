@@ -25,8 +25,8 @@ const userSchema = new mongoose.Schema({
   subscriptionType: {
     type: String,
     default: 'free' // Setting default value to 'free'
-  } 
- 
+  }
+
 });
 
 // Hashing the password before saving
