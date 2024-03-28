@@ -24,7 +24,7 @@ exports.signup = async (req, res) => {
       organization,
       email,
       password,
-      subscriptionType
+      
     });
 
     await user.save();
