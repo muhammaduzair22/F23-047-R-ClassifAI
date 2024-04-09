@@ -108,20 +108,25 @@ const Home = () => {
             {/* </div> */}
 
 
+                
             <div className="landing-page">
                 {/* <div className="header" style={backgroundStyle}> */}
-                <div className="header">
+                <div className="header2">
                     <div className="container">
-                        <h1 className="display-4">Issue Report Classification</h1>
-                        <p className="lead">
-                            Streamline your issue reports with advanced classification.
-                        </p>
-                        <a href="#learn-more" className="btn btn-primary btn-lg">
+                        <h1 className="display-4">3rd Position Winner at NLBSE 2024</h1>
+                        <a href="https://conf.researchr.org/home/icse-2024" className="btn btn-primary btn-lg">
                             Learn More
                         </a>
                     </div>
+
+                    
                     {/* </div> */}
                 </div>
+
+                <a href='https://nlbse2024.github.io/'>
+                <div className="header">
+                </div>
+                </a>
 
                 <animated.section id="move-up-section" className="move-up-section" style={moveUpAnimation}>
                     <section id="learn-more" className="section" >
